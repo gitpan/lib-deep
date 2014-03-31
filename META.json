@@ -1,7 +1,7 @@
 {
-   "abstract" : "simple enchantment over lib::abs ",
+   "abstract" : "C<lib> that choose lib path for you if you want ...",
    "author" : [
-      "grian <grian@cpan.org>"
+      "Anatoliy Grishayev <grian@cpan.org>"
    ],
    "dynamic_config" : 1,
    "generated_by" : "ExtUtils::MakeMaker version 6.68, CPAN::Meta::Converter version 2.112621",
@@ -31,11 +31,9 @@
          }
       },
       "runtime" : {
-         "requires" : {
-            "lib::abs" : "0.01"
-         }
+         "requires" : {}
       }
    },
    "release_status" : "stable",
-   "version" : "0.90"
+   "version" : "0.91"
 }

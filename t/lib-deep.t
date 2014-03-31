@@ -7,19 +7,25 @@
 
 use strict;
 use warnings;
-no warnings 'redefine';
 
-use Test::More tests => 4;
+use Test::More tests => 13;
 BEGIN { require_ok('lib::deep') };
-use lib::abs ();
+local *na_path = \&lib::deep::path_need_canonize;
+ok( na_path('.') );
+ok( na_path('..') );
+ok( na_path('a/..') );
+ok( na_path('/a/..') );
+ok( na_path('a/.') );
+ok( na_path('/a/.') );
 
-my $r;
-my $is = \&is;
-*lib::abs::import = sub { $r = $_[1]; };
-{ package A; lib::deep->import(); $is->( $r,  '.' ) };
-{ package A::B; lib::deep->import(); $is->($r,  '..' ) };
-{ package A::B::C; lib::deep->import(); $is->( $r, '../..' ) };
 
+ok( na_path('a') );
+ok( na_path('a123/b') );
+ok( na_path('a123/.c') );
+ok( na_path('/a/./b') );
+ok( na_path('/a/../c') );
+
+ok( !na_path( '/a/b/c/'));
 #########################
 
 # Insert your test code below, the Test::More module is use()ed here so read

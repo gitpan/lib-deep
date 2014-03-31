@@ -1,7 +1,7 @@
 ---
-abstract: 'simple enchantment over lib::abs '
+abstract: 'C<lib> that choose lib path for you if you want ...'
 author:
-  - 'grian <grian@cpan.org>'
+  - 'Anatoliy Grishayev <grian@cpan.org>'
 build_requires:
   ExtUtils::MakeMaker: 0
 configure_requires:
@@ -17,6 +17,5 @@ no_index:
   directory:
     - t
     - inc
-requires:
-  lib::abs: 0.01
-version: 0.90
+requires: {}
+version: 0.91
