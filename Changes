@@ -5,4 +5,9 @@ Revision history for Perl extension lib::deep.
 		-A -n lib::deep
 0.91  Sun Feb 17 00:43:00 2014
         - new syntax; 
+        - use lib::deep 0;
+        - use lib::deep -1;
+        - use lib::deep -2;
 
+0.91  Sun Feb 17 00:43:00 2014
+        - tests for linux imporved 

@@ -1,8 +1,7 @@
 package lib::deep;
 use 5.008001;
 use strict qw(vars subs);
-our $VERSION = qw(0.91);
-use Carp;
+our $VERSION = qw(0.92);
 my %cache;
 sub path_need_canonize{ # Path isn't absolute
     if ( $^O eq 'linux' ){
