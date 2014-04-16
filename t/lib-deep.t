@@ -7,8 +7,9 @@
 
 use strict;
 use warnings;
+no warnings 'once';
 
-use Test::More tests => 13;
+use Test::More 'no_plan';
 BEGIN { require_ok('lib::deep') };
 local *na_path = \&lib::deep::path_need_canonize;
 ok( na_path('.') );
@@ -25,7 +26,9 @@ ok( na_path('a123/.c') );
 ok( na_path('/a/./b') );
 ok( na_path('/a/../c') );
 
-ok( $^O eq 'linux' || !na_path( '/a/b/c/'));
+if ( $lib::deep::is_unix ){
+    ok( !na_path( '/a/b/c/'));
+}
 #########################
 
 # Insert your test code below, the Test::More module is use()ed here so read

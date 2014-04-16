@@ -1,10 +1,11 @@
 package lib::deep;
 use 5.008001;
 use strict qw(vars subs);
-our $VERSION = qw(0.92);
+our $VERSION = qw(0.93);
 my %cache;
+our $is_unix = $^O eq 'linux' || $^O =~m#bsd\z# || $^O eq 'cygwin';
 sub path_need_canonize{ # Path isn't absolute
-    if ( $^O eq 'linux' ){
+    if ( $is_unix ){
         return 1 if $_[0] !~m#\A/#;
         return 1 if $_[0] =~m#/\.\.?/#;
         return 1 if $_[0] =~ m#/\.\z#;
